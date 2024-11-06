@@ -4,15 +4,15 @@ import { createTable } from "./src/utils/createTable.js";
 import { fetchAndStoreData } from "./src/utils/fetchAndStore.js";
 import cors from "cors"
 
-import pg from 'pg';
-const pool = new pg.Pool({
-    connectionString: process.env.POSTGRES_URL,
-});
-
 dotenv.config({
     path: './.env'
 })
 
+
+import pg from 'pg';
+const pool = new pg.Pool({
+    connectionString: process.env.POSTGRES_URL,
+});
 
 
 const app = express();
