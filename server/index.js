@@ -24,6 +24,12 @@ app.use(cors({
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type'],
 }))
+
+app.use((req, res, next) => {
+    res.setHeader("Content-Security-Policy", "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://quad-b-pi.vercel.app/");
+    next();
+});
+
 app.get('/api/tickers', async (req, res) => {
     try {
         const result = await pool.query('SELECT * FROM tickers');
