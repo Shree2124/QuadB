@@ -15,6 +15,9 @@ const pool = new pg.Pool({
 });
 
 
+console.log(pool);
+
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -39,6 +42,10 @@ app.get('/api/tickers', async (req, res) => {
         res.status(500).json({ error: "Internal Server Error" });
     }
 });
+
+app.get("/",(req, res)=>{
+    res.send("hello")
+})
 
 app.listen(PORT, async () => {
     console.log(`Server is running on port ${PORT}`);

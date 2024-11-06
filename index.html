@@ -106,7 +106,7 @@
       document.addEventListener("DOMContentLoaded", () => {
         async function fetchAndDisplayCryptoData() {
           try {
-            const response = await fetch("https://quad-b-pi.vercel.app/");
+            const response = await fetch("https://quad-b-pi.vercel.app/api/tickers");
             console.log(response);
 
             const data = await response.json();
